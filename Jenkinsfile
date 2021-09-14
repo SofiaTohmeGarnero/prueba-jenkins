@@ -23,5 +23,11 @@ pipeline {
             }
         }
     }
-    
+    post {
+        success {
+            dir (‘maven-adderapp’) {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+   }
 }
